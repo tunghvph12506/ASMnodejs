@@ -1,0 +1,79 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base href="http://localhost:3000/trangchu">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - Brand</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+    <link rel="stylesheet" href="../assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
+    <link rel="stylesheet" href="../assets/css/Navigation-with-Button.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white portfolio-navbar " style="background: linear-gradient(
+120deg
+,#7f70f5,#0ea0ff)">
+    <div class="container"><a class="navbar-brand logo" href="#">tinder</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item"><a class="nav-link" href="http://localhost:3000">Đăng Xuất</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<section style="margin-top: 20px">
+
+
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ảnh</th>
+                    <th>username</th>
+                    <th>email</th>
+                    <th>SĐT</th>
+                    <th></th>
+                </tr>
+                </thead>
+        {{#each users}}
+                <tbody>
+                <tr>
+                    <div name="id" style="display: none">{{this._id}}</div>
+                    <td> <img style="width: 50px" src="uploads/{{this.avatar}}"></td>
+                    <td>  <div>{{this.userName}}</div></td>
+                    <td> <div>{{this.email}}</div></td>
+                    <td> <div>{{this.sdt}}</div></td>
+                    <td style="margin-left: 1px;margin-right: 1px;padding: 8px;"><button class="btn btn-primary" type="button"><a href="/updateUser/{{this._id}}">Upload</a></button><button class="btn btn-primary" type="button"> <a onclick="return confirm('ban muon xoa k')" href="/deleteUsers/{{this._id}}">Delete</a></button></td>
+                </tr>
+                </tbody>
+        {{/each}}
+            </table>
+        </div>
+
+
+
+
+
+
+
+
+        <br>
+
+</section>
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
+<script src="assets/js/theme.js"></script>
+</body>
+
+</html>

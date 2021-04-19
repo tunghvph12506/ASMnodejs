@@ -1,0 +1,14 @@
+
+
+<base href="http://localhost:3000/trangchu">
+<section class="login-dark">
+    <form method="post" action="./updateUser" enctype="multipart/form-data">
+        <a name="_id" href="" style="display: none">{{dulieu._id}}</a>
+        <div class="illustration"><img style="width: 50px" src="uploads/{{dulieu.avatar}}">      <input name="avatar11" type="file" ></div>
+        <div class="form-group"><input type="text" class="form-control" name="userNameUd" value="{{dulieu.userName}}" placeholder="UserName" /></div>
+        <div class="form-group"><input type="email" class="form-control" name="emailUd" value="{{dulieu.email}}" placeholder="Email" /></div>
+        <div class="form-group"><input type="text" class="form-control" name="sdtUd" value="{{dulieu.sdt}}" placeholder="Sđt" /></div>
+        <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Save</button></div>
+    </form>
+</section>
+
