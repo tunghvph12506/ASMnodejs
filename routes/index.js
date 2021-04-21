@@ -85,11 +85,6 @@ router.post('/',function (req,res){
         }else {
           res.redirect('./trangchu')
         }
-      }).then(data =>{
-        console.log(data)
-        res.send(data)
-      }).catch(err => {
-        console.log(err)
       })
     }
   });
@@ -151,12 +146,7 @@ router.post('/updateUser',function (req,res) {
           }else {
             res.redirect('../trangchu')
           }
-        }  ) .then(data =>{
-          console.log(data)
-          res.send(data)
-        }).catch(err => {
-          console.log(err)
-        })
+        }  )
       }else {
 
         console.log('name2:'+req.body.userNameUd)
@@ -172,12 +162,7 @@ router.post('/updateUser',function (req,res) {
           }else {
             res.redirect('../trangchu')
           }
-        }  ) .then(data =>{
-          console.log(data)
-          res.send(data)
-        }).catch(err => {
-          console.log(err)
-        })
+        }  )
       }
     }
 
