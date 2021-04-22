@@ -83,8 +83,14 @@ router.post('/',function (req,res){
         if(err){
           res.render('index',{title:'Express :err'})
         }else {
+          res.send({token})
           res.redirect('./trangchu')
         }
+      }).then(data =>{
+        console.log(data)
+        res.send(data)
+      }).catch(err => {
+        console.log(err)
       })
     }
   });
@@ -171,4 +177,56 @@ router.post('/updateUser',function (req,res) {
 
 
 })
+
+
+router.post('/update',(req,res) =>{
+  var userConnect=db.model('users',user);
+  userConnect.updateOne(req.body._id,{
+    userName:req.body.usernameDK,
+    email:req.body.emailDK,
+    sdt:req.body.sdtDK,
+    avatar:req.file.filename,
+  }).then(data =>{
+    console.log(data)
+    res.send(data)
+  }).catch(err => {
+    console.log("error",err)
+  })
+})
+
+router.post("/users", async (req, res) => {
+  var userConnect=db.model('users',user);
+  const u = new userConnect(req.body);
+  try {
+    await u.save();
+    res.send(u);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+router.post("/delete11", (req, res) => {
+  db.model('users',user).findByIdAndRemove(req.body.id)
+      .then((data) => {
+        console.log(data);
+        res.send(data);
+      })
+      .catch((error) => {
+        res.status(500).send(error);
+      });
+});
+router.post("/update12", (req, res) => {
+  db.model('users',user).findByIdAndUpdate(req.body.id, {
+    userName:req.body.userName,
+    email:req.body.email,
+    password:req.body.password,
+    sdt:req.body.sdt,
+  })
+      .then((data) => {
+        console.log(data);
+        res.send(data);
+      })
+      .catch((error) => {
+        res.status(500).send(error);
+      });
+});
 module.exports = router;
