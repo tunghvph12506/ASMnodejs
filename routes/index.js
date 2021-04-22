@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var dbConnect='mongodb+srv://admin:admin@cluster0.axqha.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+var dbConnect='mongodb+srv://admin:admin@cluster0.axqha.mongodb.net/tinderasm?retryWrites=true&w=majority';
 const  mongoose =require('mongoose');
 mongoose.connect(dbConnect,{useNewUrlParser:true,useUnifiedTopology:true});
 
